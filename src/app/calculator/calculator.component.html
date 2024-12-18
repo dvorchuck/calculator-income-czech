@@ -1,0 +1,19 @@
+<mat-form-field>
+  <mat-label>Select Currency</mat-label>
+  <mat-select>
+    <mat-option value="czk">CZK</mat-option>
+    <mat-option value="eur">EUR</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field floatLabel="always">
+  <mat-label>Hrubý příjem HPP</mat-label>
+  <input matInput type="number" class="example-right-align" placeholder="0" />
+  <!-- <span matTextPrefix>$&nbsp;</span> -->
+  <span matTextSuffix>{{ currencySuffix }}</span>
+</mat-form-field>
+<mat-form-field floatLabel="always">
+  <mat-label>Hrubý příjem IČO</mat-label>
+  <input matInput type="number" class="example-right-align" placeholder="0" />
+  <!-- <span matTextPrefix>$&nbsp;</span> -->
+  <span matTextSuffix>{{ currencySuffix }}</span>
+</mat-form-field>
