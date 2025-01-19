@@ -1,19 +1,69 @@
-<mat-form-field>
-  <mat-label>Select Currency</mat-label>
-  <mat-select>
-    <mat-option value="czk">CZK</mat-option>
-    <mat-option value="eur">EUR</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field floatLabel="always">
-  <mat-label>Hrubý příjem HPP</mat-label>
-  <input matInput type="number" class="example-right-align" placeholder="0" />
-  <!-- <span matTextPrefix>$&nbsp;</span> -->
-  <span matTextSuffix>{{ currencySuffix }}</span>
-</mat-form-field>
-<mat-form-field floatLabel="always">
-  <mat-label>Hrubý příjem IČO</mat-label>
-  <input matInput type="number" class="example-right-align" placeholder="0" />
-  <!-- <span matTextPrefix>$&nbsp;</span> -->
-  <span matTextSuffix>{{ currencySuffix }}</span>
-</mat-form-field>
+<div class="page">
+  <div class="form-block">
+    <div class="form">
+      <mat-form-field floatLabel="always">
+        <mat-label>Příjmy</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="0"
+          [value]="income()"
+          (input)="onIncomeChange($event)"
+        />
+        <span matTextSuffix>{{ currencySuffix() }}</span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Měna</mat-label>
+        <mat-select [(value)]="selectedCurrency">
+          @for (item of currencyOptions; track item) {
+            <mat-option [value]="item">{{ item }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Perioda</mat-label>
+        <mat-select [(value)]="selectedPeriod">
+          @for (item of periodOptions; track item) {
+            <mat-option [value]="item">{{ item }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="vacation">
+      <input type="checkbox" />
+      <p>Dovolená</p>
+    </div>
+  </div>
+  <div class="results-block">
+    <div class="results">
+      <p class="title">Čistý příjem</p>
+      @for (item of results(); track $index) {
+        <div class="result">
+          <div class="period">{{ item.period }}</div>
+          <div class="amount">
+            {{
+              item.amount.toLocaleString().replaceAll(',', ' ') +
+                ' ' +
+                item.currency
+            }}
+          </div>
+        </div>
+      }
+    </div>
+    <div class="results">
+      <p class="title">Hrubý příjem</p>
+      @for (item of results(); track $index) {
+        <div class="result">
+          <div class="period">{{ item.period }}</div>
+          <div class="amount">
+            {{
+              item.amount.toLocaleString().replaceAll(',', ' ') +
+                ' ' +
+                item.currency
+            }}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

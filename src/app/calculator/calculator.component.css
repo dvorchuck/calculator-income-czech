@@ -1,6 +1,77 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
+.vacation {
+  display: flex;
+  border-radius: 5px;
+  gap: 20px;
+
+  padding: 16px;
+
+  background-color: azure;
+  align-items: center;
+  background-color: aqua;
+}
+
+.form-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr, 3);
+  gap: 16px;
+}
+
+.vacation p {
+  display: block;
+}
+
+.vacation input {
+  background-color: red;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.form {
+  border-radius: 5px;
+
+  padding: 16px;
+  display: grid;
+  justify-content: center;
+  background-color: aqua;
+}
+
+.page {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+
+  justify-content: center;
+  background-color: aquamarine;
+}
+
+.results-block {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.results {
+  background-color: bisque;
+  padding: 16px;
+  border-radius: 5px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr, 3);
+  gap: 4px;
+}
+
+.results p {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.result {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
